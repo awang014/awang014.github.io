@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: rgb(243, 247, 251);
+    }
+
+    #search {
+      padding: 10px;
+    }
+
+    #search input[type="text"] {
+      width: 1200px;
+      padding: 5px;
+      font-size: 16px;
+      height: 30px;
+    }
+
+    #search button {
+      padding: 5px 10px;
+      font-size: 16px;
+      width: 100px;
+      height: 40px;
+    }
+
+    #container {
+      display: flex;
+      height: calc(100vh - 40px);
+    }
+
+    #operations {
+      flex: 3;
+      border: 1px solid rgb(180, 180, 180);
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+    }
+
+    #task {
+      flex: 1;
+      border: 1px solid rgb(180, 180, 180);
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      border-radius: 5px;
+    }
+
+    #title {
+      font-weight: bold;
+      padding: 30px;
+    }
+
+    #text {
+      padding-left: 30px;
+      padding-right: 40px;
+      margin-bottom: 40px;
+    }
+
+
+    #suggestions {
+      width: 1000px;
+      padding-left: 30px;
+      column-count: 2;
+      column-gap: 40px;
+    }
+
+    #suggestion1,
+    #suggestion2,
+    #suggestion3,
+    #suggestion4 {
+      display: inline-block;
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px;
+      background-color: lightgray;
+      cursor: pointer;
+      border-radius: 3px;
+      margin-bottom: 5px;
+    }
+
+    .tag.selected {
+      background-color: darkgray;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 3px;
+      background-color: #ccc;
+      color: #000000;
+      border: 2px solid #000;
+      text-decoration: none;
+      margin-left: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="search">
+    <input type="text" placeholder="type here...">
+    <button id="searchButton">search</button>
+  </div>
+
+  <div id="container">
+    <div id="task">
+      <div id="title">Task1</div>
+      <div id="text">Your task is to find evidence that radio waves from radio towers or car phones have influenced the
+        development of brain cancer. </div>
+      <div>
+        <a href="Task3.html" class="button">Done</a>
+      </div>
+    </div>
+    <div id="operations">
+      <div id="title">Suggested terms</div>
+      <div id="suggestions">
+        <div id="suggestion1">
+          <div class="tag">education</div>
+          <div class="tag">grammar school</div>
+          <div class="tag">curriculum</div>
+          <div class="tag">schools</div>
+          <div class="tag">major societal activity</div>
+          <div class="tag">Variable</div>
+          <div class="tag">programs</div>
+          <div class="tag">Health Education</div>
+          <div class="tag">Job Stress</div>
+          <div class="tag">Factors</div>
+          <div class="tag">vocational</div>
+          <div class="tag">characteristic</div>
+          <div class="tag">Study was Conducted</div>
+          <div class="tag">career training</div>
+          <div class="tag">technical education</div>
+          <div class="tag">school</div>
+        </div>
+        <div id="suggestion2">
+          <div class="tag">children</div>
+          <div class="tag">parents</div>
+          <div class="tag">daughters</div>
+          <div class="tag">kids</div>
+          <div class="tag">Challenges</div>
+          <div class="tag">youngsters</div>
+          <div class="tag">category</div>
+          <div class="tag">non-profit organization</div>
+          <div class="tag">Development Indices</div>
+          <div class="tag">group</div>
+          <div class="tag">Impact</div>
+          <div class="tag">Model</div>
+          <div class="tag">ngo</div>
+          <div class="tag">babies</div>
+          <div class="tag">organization</div>
+        </div>
+        <div id="suggestion3">
+          <div class="tag">home</div>
+          <div class="tag">go</div>
+          <div class="tag">Systematic Review</div>
+          <div class="tag">just</div>
+          <div class="tag">hot tub</div>
+          <div class="tag">own home</div>
+          <div class="tag">homes</div>
+          <div class="tag">protected area</div>
+          <div class="tag">Associated</div>
+          <div class="tag">temporary dwelling</div>
+          <div class="tag">personal space</div>
+          <div class="tag">come</div>
+          <div class="tag">Adult</div>
+          <div class="tag">Randomized Controlled Trials</div>
+          <div class="tag">back</div>
+        </div>
+      </div>
+      <!-- <button id="exportButton">Export Data</button> -->
+    </div>
+
+    <script>
+      //Text
+      const suggestions = document.querySelectorAll('#suggestions > div');
+      const input = document.querySelector('input[type="text"]');
+
+      suggestions.forEach(suggestion => {
+        const tags = suggestion.querySelectorAll('.tag');
+
+        tags.forEach(tag => {
+          tag.addEventListener('click', () => {
+            tag.classList.toggle('selected');
+            updateSearchInput();
+          });
+        });
+      });
+
+      function updateSearchInput() {
+        let searchText = '';
+
+        suggestions.forEach(suggestion => {
+          const selectedTags = suggestion.querySelectorAll('.tag.selected');
+
+          if (selectedTags.length > 0) {
+            const suggestionTexts = [];
+
+            selectedTags.forEach(tag => {
+              const tagText = tag.textContent.trim();
+
+              if (tagText.includes(' ')) {
+                suggestionTexts.push(`"${tagText}"`);
+              } else {
+                suggestionTexts.push(tagText);
+              }
+            });
+
+            const suggestionText = suggestionTexts.join(' OR ');
+
+            if (searchText !== '') {
+              searchText += ' ';
+            }
+
+            if (selectedTags.length > 1) {
+              searchText += `(${suggestionText})`;
+            } else {
+              searchText += suggestionText;
+            }
+          }
+        });
+
+        searchInput.value = searchText;
+      }
+
+      //Search and save data
+      const searchButton = document.querySelector('#searchButton');
+      const searchInput = document.querySelector('input');
+
+      searchButton.addEventListener('click', () => {
+        const searchText = searchInput.value;
+        const currentTime = new Date().toLocaleString();
+        const searchData = {
+          text: searchText,
+          time: currentTime
+        };
+
+        let previousData = localStorage.getItem('searchData');
+
+        if (previousData) {
+          previousData = JSON.parse(previousData);
+          previousData.push(searchData);
+        } else {
+          previousData = [searchData];
+        }
+
+        localStorage.setItem('searchData', JSON.stringify(previousData));
+
+        const searchUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(searchText)}`;
+        window.open(searchUrl, '_blank');
+      });
+
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const previousData = localStorage.getItem('searchData');
+
+        if (previousData) {
+          const searchData = JSON.parse(previousData);
+          searchData.forEach(data => {
+            console.log('Search Text:', data.text);
+            console.log('Time:', data.time);
+          });
+        }
+      });
+
+      function exportToCSV() {
+        const previousData = localStorage.getItem('searchData');
+
+        if (previousData) {
+          const searchData = JSON.parse(previousData);
+
+          let csvContent = 'Search Text,Time\n';
+
+          searchData.forEach(data => {
+            const searchText = data.text.replace(/"/g, '""');
+            const time = data.time;
+
+            csvContent += `"${searchText}","${time}"\n`;
+          });
+
+          const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+          const link = document.createElement('a');
+          if (link.download !== undefined) {
+            const url = URL.createObjectURL(blob);
+            link.setAttribute('href', url);
+            link.setAttribute('download', 'search_data.csv');
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        }
+      }
+
+      exportButton.addEventListener('click', () => {
+        exportToCSV();
+      });
+
+
+// Clear localstorage
+    //localStorage.clear();
+
+    </script>
+
+</body>
+
+</html>
