@@ -177,7 +177,7 @@
           <div class="tag">back</div>
         </div>
       </div>
-      <!-- <button id="exportButton">Export Data</button> -->
+      <button id="exportButton">Export Data</button>
     </div>
 
     <script>
@@ -241,7 +241,8 @@
         const currentTime = new Date().toLocaleString();
         const searchData = {
           text: searchText,
-          time: currentTime
+          time: currentTime,
+          taskId: 2
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -278,13 +279,13 @@
         if (previousData) {
           const searchData = JSON.parse(previousData);
 
-          let csvContent = 'Search Text,Time\n';
+          let csvContent = 'Task ID,Search Text,Time\n';
 
           searchData.forEach(data => {
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${searchText}","${time}"\n`;
+            csvContent += `"${2}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -306,9 +307,6 @@
         exportToCSV();
       });
 
-
-// Clear localstorage
-    //localStorage.clear();
 
     </script>
 
