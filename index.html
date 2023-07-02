@@ -3,220 +3,233 @@
 
 <head>
   <style>
+
     body {
-      margin: 0;
-      padding: 0;
-      background-color: rgb(243, 247, 251);
+      padding: 10px 80px;
     }
 
-    #search {
-      padding: 10px;
-    }
-
-    #search input[type="text"] {
-      width: 1200px;
-      padding: 5px;
-      font-size: 16px;
-      height: 30px;
-    }
-
-    #search button {
-      padding: 5px 10px;
-      font-size: 16px;
-      width: 100px;
+    .search-container {
+      display: flex;
       height: 40px;
+    }
+
+    .search-input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      background-color: rgb(64, 156, 255);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
 
     #container {
       display: flex;
-      height: calc(100vh - 40px);
+      height: 100vh;
+      margin-top: 10px;
+      margin-bottom: 100px;
     }
 
-    #operations {
-      flex: 3;
-      border: 1px solid rgb(180, 180, 180);
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-    }
-
-    #task {
-      flex: 1;
-      border: 1px solid rgb(180, 180, 180);
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-    }
-
-    #title {
+    .title {
+      font-size: 18px;
       font-weight: bold;
-      padding: 30px;
+      margin-bottom: 10px;
     }
 
-    #text {
-      padding-left: 30px;
-      padding-right: 40px;
-      margin-bottom: 40px;
+    .text{
+      font-size: 15px;
+      margin-top: 30px;
     }
-
 
     #suggestions {
-      width: 1000px;
-      padding-left: 30px;
-      column-count: 2;
-      column-gap: 40px;
+      flex: 3;
+      /* border: 1px solid #ccc; */
+      padding: 20px;
     }
 
     #suggestion1,
     #suggestion2,
     #suggestion3,
     #suggestion4 {
-      display: inline-block;
-      width: 100%;
-      margin-top: 30px;
-      margin-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      width: 25%;
+      float: left;
+      gap: 10px;
     }
 
-    .tag {
+    .term {
+      /* background-color: #ffffff; */
       display: inline-block;
-      padding: 5px;
-      background-color: lightgray;
+      padding: 3px;
+      margin-right: 15px;
+      background-color: rgb(246, 246, 246);
       cursor: pointer;
-      border-radius: 3px;
-      margin-bottom: 5px;
+      font-size: 14px;
+      border-radius: 2px;
+      width:fit-content;
     }
 
-    .tag.selected {
-      background-color: darkgray;
+    .term.selected {
+      background-color: rgb(216, 216, 216);
+      border: 1px solid #c0c0c0;
+    }
+
+    #task {
+      flex: 1;
+      background-color: #ebebec;
+      padding: 20px;
+      /* border: 1px solid #ccc; */
+      height: 600px;
     }
 
     .button {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 3px;
-      background-color: #ccc;
-      color: #000000;
-      border: 2px solid #000;
-      text-decoration: none;
-      margin-left: 30px;
+      margin-top: 400px;
     }
+
+    #back{
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: rgb(228, 228, 228);
+      color: rgb(107, 107, 107);
+      border: 2px solid rgb(164, 164, 164);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    
+    #next {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: rgb(228, 228, 228);
+      color: rgb(107, 107, 107);
+      border: 2px solid rgb(164, 164, 164);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
 
   </style>
 </head>
 
 <body>
-  <div id="search">
-    <input type="text" placeholder="type here...">
-    <button id="searchButton">search</button>
+
+  <div class="search-container">
+    <input type="text" class="search-input">
+    <button id="searchButton" class="search-button">search</button>
   </div>
 
   <div id="container">
-    <div id="task">
-      <div id="title">Task1</div>
-      <div id="text">Your task is to find evidence that radio waves from radio towers or car phones have influenced the
-        development of brain cancer. </div>
-      <div>
-        <a href="Task2.html" class="button">Done</a>
+    <div id="suggestions">
+      <!-- <div class="title">Suggestions</div> -->
+      <div id="suggestion1">
+          <div class="term">broadcast</div>
+          <div class="term">broadcasting</div>
+          <div class="term">cellular phone</div>
+          <div class="term">channel</div>
+          <div class="term">Electromagnetic</div>
+          <div class="term">electromagnetic interference</div>
+          <div class="term">Enzyme Activity</div>
+          <div class="term">megahertz</div>
+          <div class="term">microwave</div>
+          <div class="term">Microwave Ablation MWA</div>
+          <div class="term">Microwave-assisted Extraction</div>
+          <div class="term">Microwaves</div>
+          <div class="term">mobile phone</div>
+          <div class="term">other wavelength</div>
+          <div class="term">Radiation, Nonionizing</div>
+          <div class="term">Radio Frequency</div>
+          <div class="term">radiolocation</div>
+          <div class="term">radio waves</div>
+          <div class="term">RF Pulses</div>
+          <div class="term">tv</div>
+          <div class="term">wave</div>
       </div>
-    </div>
-    <div id="operations">
-      <div id="title">Suggested terms</div>
-      <div id="suggestions">
-        <div id="suggestion1">
-          <div class="tag">radio waves</div>
-          <div class="tag">broadcasting</div>
-          <div class="tag">megahertz</div>
-          <div class="tag">channel</div>
-          <div class="tag">Microwave Ablation MWA</div>
-          <div class="tag">Enzyme Activity</div>
-          <div class="tag">Electromagnetic</div>
-          <div class="tag">tv</div>
-          <div class="tag">radiolocation</div>
-          <div class="tag">Microwave-assisted Extraction</div>
-          <div class="tag">other wavelength</div>
-          <div class="tag">microwave</div>
-          <div class="tag">Radiation, Nonionizing</div>
-          <div class="tag">mobile phone</div>
-          <div class="tag">wave</div>
-          <div class="tag">cellular phone</div>
-          <div class="tag">RF Pulses</div>
-          <div class="tag">broadcast</div>
-          <div class="tag">electromagnetic interference</div>
-          <div class="tag">Microwaves</div>
-          <div class="tag">Radio Frequency</div>
-        </div>
-        <div id="suggestion2">
-          <div class="tag">radio towers</div>
-          <div class="tag">EMR</div>
-          <div class="tag">broadcast</div>
-          <div class="tag">necessary infrastructure</div>
-          <div class="tag">tv</div>
-          <div class="tag">item</div>
-          <div class="tag">tall structure</div>
-          <div class="tag">Exposure to Electromagnetic Fields</div>
-          <div class="tag">Cancer Risk</div>
-          <div class="tag">Changes in the Brain</div>
-          <div class="tag">transmitter</div>
-          <div class="tag">structure</div>
-          <div class="tag">Survival Rates</div>
-          <div class="tag">tower</div>
-          <div class="tag">broadcasting</div>
-        </div>
-        <div id="suggestion3">
-          <div class="tag">car phones</div>
-          <div class="tag">Other Topics</div>
-          <div class="tag">COVID-19 Pandemic</div>
-          <div class="tag">Semantic</div>
-          <div class="tag">vehicles</div>
-          <div class="tag">truck</div>
-          <div class="tag">mobile phone</div>
-          <div class="tag">Randomized Controlled Trial</div>
-          <div class="tag">mobile</div>
-          <div class="tag">cellphones</div>
-          <div class="tag">computers</div>
-          <div class="tag">Colorimetric</div>
-          <div class="tag">audio/visual equipment</div>
-        </div>
-        <div id="suggestion4">
-          <div class="tag">brain cancer</div>
-          <div class="tag">malignant glioma</div>
-          <div class="tag">diagnosed</div>
-          <div class="tag">breast</div>
-          <div class="tag">Central Nervous System Neoplasms</div>
-          <div class="tag">Gene Expression</div>
-          <div class="tag">glioblastoma multiforme</div>
-          <div class="tag">lung</div>
-          <div class="tag">Patient Survival</div>
-          <div class="tag">Central Nervous System</div>
-          <div class="tag">tumors</div>
-          <div class="tag">Cerebral Ventricle Neoplasms</div>
-          <div class="tag">Mouse Model</div>
-          <div class="tag">Targeting</div>
-          <div class="tag">Infratentorial Neoplasms</div>
-          <div class="tag">brain disorder</div>
-          <div class="tag">glioma</div>
-          <div class="tag">prostate</div>
-          <div class="tag">Pinealoma</div>
-          <div class="tag">form of cancer</div>
-          <div class="tag">Brain Diseases</div>
-        </div>
+      <div id="suggestion2">
+          <div class="term">broadcast</div>
+          <div class="term">broadcasting</div>
+          <div class="term">Cancer Risk</div>
+          <div class="term">Changes in the Brain</div>
+          <div class="term">EMR</div>
+          <div class="term">Exposure to Electromagnetic Fields</div>
+          <div class="term">item</div>
+          <div class="term">necessary infrastructure</div>
+          <div class="term">radio towers</div>
+          <div class="term">structure</div>
+          <div class="term">Survival Rates</div>
+          <div class="term">tall structure</div>
+          <div class="term">tower</div>
+          <div class="term">transmitter</div>
+          <div class="term">tv</div>
       </div>
-      <!-- <button id="exportButton">Export Data</button> -->
+      <div id="suggestion3">
+          <div class="term">audio/visual equipment</div>
+          <div class="term">car phones</div>
+          <div class="term">cellphones</div>
+          <div class="term">Colorimetric</div>
+          <div class="term">computers</div>
+          <div class="term">COVID-19 Pandemic</div>
+          <div class="term">mobile</div>
+          <div class="term">mobile phone</div>
+          <div class="term">Other Topics</div>
+          <div class="term">Randomized Controlled Trial</div>
+          <div class="term">Semantic</div>
+          <div class="term">truck</div>
+          <div class="term">vehicles</div>
+      </div>
+      <div id="suggestion4">
+          <div class="term">brain cancer</div>
+          <div class="term">Brain Diseases</div>
+          <div class="term">brain disorder</div>
+          <div class="term">breast</div>
+          <div class="term">Central Nervous System</div>
+          <div class="term">Central Nervous System Neoplasms</div>
+          <div class="term">Cerebral Ventricle Neoplasms</div>
+          <div class="term">diagnosed</div>
+          <div class="term">form of cancer</div>
+          <div class="term">Gene Expression</div>
+          <div class="term">glioblastoma multiforme</div>
+          <div class="term">glioma</div>
+          <div class="term">Infratentorial Neoplasms</div>
+          <div class="term">lung</div>
+          <div class="term">malignant glioma</div>
+          <div class="term">Mouse Model</div>
+          <div class="term">Patient Survival</div>
+          <div class="term">Pinealoma</div>
+          <div class="term">prostate</div>
+          <div class="term">Targeting</div>
+          <div class="term">tumors</div>
+      </div>
     </div>
 
-    <script>
+    <div id="task">
+      <div class="title">Task1</div>
+      <div class="text">Find evidence that radio waves from radio towers or car phones have influenced the development of brain cancer.</div>
+      <div class="button" style="display: flex; justify-content: space-between;">
+        <div id="back">Back</div>
+        <div id="next">Done</div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
       //Text
       const suggestions = document.querySelectorAll('#suggestions > div');
       const input = document.querySelector('input[type="text"]');
 
       suggestions.forEach(suggestion => {
-        const tags = suggestion.querySelectorAll('.tag');
+        const terms = suggestion.querySelectorAll('.term');
 
-        tags.forEach(tag => {
-          tag.addEventListener('click', () => {
-            tag.classList.toggle('selected');
+        terms.forEach(term => {
+          term.addEventListener('click', () => {
+            term.classList.toggle('selected');
             updateSearchInput();
           });
         });
@@ -226,18 +239,18 @@
         let searchText = '';
 
         suggestions.forEach(suggestion => {
-          const selectedTags = suggestion.querySelectorAll('.tag.selected');
+          const selectedterms = suggestion.querySelectorAll('.term.selected');
 
-          if (selectedTags.length > 0) {
+          if (selectedterms.length > 0) {
             const suggestionTexts = [];
 
-            selectedTags.forEach(tag => {
-              const tagText = tag.textContent.trim();
+            selectedterms.forEach(term => {
+              const termText = term.textContent.trim();
 
-              if (tagText.includes(' ')) {
-                suggestionTexts.push(`"${tagText}"`);
+              if (termText.includes(' ')) {
+                suggestionTexts.push(`"${termText}"`);
               } else {
-                suggestionTexts.push(tagText);
+                suggestionTexts.push(termText);
               }
             });
 
@@ -247,7 +260,7 @@
               searchText += ' ';
             }
 
-            if (selectedTags.length > 1) {
+            if (selectedterms.length > 1) {
               searchText += `(${suggestionText})`;
             } else {
               searchText += suggestionText;
@@ -267,7 +280,8 @@
         const currentTime = new Date().toLocaleString();
         const searchData = {
           text: searchText,
-          time: currentTime
+          time: currentTime,
+          taskId: 1
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -304,13 +318,13 @@
         if (previousData) {
           const searchData = JSON.parse(previousData);
 
-          let csvContent = 'Search Text,Time\n';
+          let csvContent = 'Task ID,Search Text,Time\n';
 
           searchData.forEach(data => {
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${searchText}","${time}"\n`;
+            csvContent += `"${1}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -331,10 +345,6 @@
       exportButton.addEventListener('click', () => {
         exportToCSV();
       });
-
-
-// Clear localstorage
-    //localStorage.clear();
 
     </script>
 
