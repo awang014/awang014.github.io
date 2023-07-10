@@ -3,230 +3,238 @@
 
 <head>
   <style>
+
     body {
-      margin: 0;
-      padding: 0;
-      background-color: rgb(243, 247, 251);
+      padding: 10px 80px;
     }
 
-    #search {
-      padding: 10px;
+    .container {
+      display: flex;
+      justify-content: space-between;
     }
 
-    #search input[type="text"] {
-      width: 1200px;
-      padding: 5px;
-      font-size: 16px;
-      height: 30px;
+    .left {
+      flex-basis: 10%; /* 宽度占比为 1 */
     }
 
-    #search button {
-      padding: 5px 10px;
-      font-size: 16px;
-      width: 100px;
+    .middle {
+      flex-basis: 80%; /* 宽度占比为 3 */
+    }
+
+    .right {
+      flex-basis: 10%; /* 宽度占比为 1 */
+    }
+
+    .search-container {
+      display: flex;
       height: 40px;
     }
 
-    #container {
-      display: flex;
-      height: calc(100vh - 40px);
-    }
-
-    #operations {
-      flex: 3;
-      border: 1px solid rgb(180, 180, 180);
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-    }
-
-    #task {
+    .search-input {
       flex: 1;
-      border: 1px solid rgb(180, 180, 180);
-      margin: 10px;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
 
-    #title {
+    .search-button {
+      margin-left: 10px;
+      padding: 8px 16px;
+      background-color: rgb(177, 177, 177);
+      color: rgb(51, 51, 51);
+      border: 2px solid rgb(118, 118, 118);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .title {
+      font-size: 18px;
       font-weight: bold;
-      padding: 30px;
+      margin-bottom: 10px;
     }
 
-    #text {
-      padding-left: 30px;
-      padding-right: 40px;
-      margin-bottom: 40px;
+    .text{
+      font-size: 15px;
+      margin-top: 30px;
     }
 
+    .keywords{
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      /* color: rgba(44, 34, 193, 0.803); */
+    }
 
     #suggestions {
-      width: 1000px;
-      padding-left: 30px;
-      column-count: 2;
-      column-gap: 40px;
+      /* flex: 3; */
+      /* border: 1px solid #ccc; */
+      padding-top: 20px;
     }
 
     #suggestion1,
     #suggestion2,
     #suggestion3,
-    #suggestion4 {
-      display: inline-block;
-      width: 100%;
-      margin-top: 30px;
-      margin-bottom: 40px;
+    #suggestion4{
+      display: flex;
+      flex-direction: column;
+      width: 33%;
+      float: left;
+      gap: 10px;
     }
 
-    .tag {
+    .term {
+      /* background-color: #ffffff; */
       display: inline-block;
-      padding: 5px;
-      background-color: lightgray;
+      padding: 3px;
+      margin-right: 15px;
+      background-color: rgb(246, 246, 246);
       cursor: pointer;
-      border-radius: 3px;
-      margin-bottom: 5px;
+      font-size: 14px;
+      border-radius: 2px;
+      width:fit-content;
     }
 
-    .tag.selected {
-      background-color: darkgray;
+    .bold{
+      font-weight: bold;
+    }
+
+    .term.selected {
+      background-color: rgb(216, 216, 216);
+      border: 1px solid #c0c0c0;
+    }
+
+    #task {
+      background-color: #ebebec;
+      padding: 20px;
+      margin-bottom: 20px;
+      /* border: 1px solid #ccc; */
     }
 
     .button {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 3px;
-      background-color: #ccc;
-      color: #000000;
-      border: 2px solid #000;
+      padding: 8px 16px;
+      background-color: rgb(228, 228, 228);
+      color: rgb(107, 107, 107);
+      /* border: 2px solid rgb(164, 164, 164); */
+      border-radius: 4px;
+      cursor: pointer;
+      position: fixed;
+      bottom: 30px;
       text-decoration: none;
-      margin-left: 30px;
+      padding: 10px 20px;
+      border-radius: 5px;
     }
+
+    #back{
+      left: 50px;
+    }
+    
+    #next {
+      right: 50px;
+    }
+
 
   </style>
 </head>
 
 <body>
-  <div id="search">
-    <input type="text" placeholder="type here...">
-    <button id="searchButton">search</button>
-  </div>
-
-  <div id="container">
-    <div id="task">
-      <div id="title">Task1</div>
-      <div id="text">Your task is to find evidence that radio waves from radio towers or car phones have influenced the
-        development of brain cancer. </div>
-      <div>
-        <a href="Task2.html" class="button">Done</a>
-      </div>
+  <div class="container">
+<!-- back button -->
+    <div class="left">
+      <a id="back" href="Task2.html" class="button" style="text-decoration: none;">Back</a>
     </div>
-    <div id="operations">
-      <div id="title">Suggested terms</div>
+<!-- container -->
+    <div class="middle">
+      <div id="task">
+        <div class="title">Task3</div>
+        <div class="text">Investigate what disasters have occurred in tunnels used for transportation. </div>
+      </div>
+      <div class="search-container">
+        <input type="text" class="search-input">
+        <button id="searchButton" class="search-button">search</button>
+      </div>
       <div id="suggestions">
+        <!-- <div class="title">Suggestions</div> -->
         <div id="suggestion1">
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
+          <!-- <p class="keywords">Education</p> -->
+          <div class="term">aftermath</div>
+          <div class="term">Associated</div>
+          <div class="term">catastrophe</div>
+          <div class="term">Contributes</div>
+          <div class="term">disaster</div>
+          <div class="term">emergency</div>
+          <div class="term">extraordinary circumstance</div>
+          <div class="term">flood</div>
+          <div class="term">fukushima</div>
+          <div class="term">haiti earthquake</div>
+          <div class="term">hurricane andrew</div>
+          <div class="term">Public Health</div>
+          <div class="term">Results</div>
+          <div class="term">time</div>
+          <div class="term">tsunami</div>
         </div>
         <div id="suggestion2">
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
+          <!-- <p class="keywords">Children</p> -->
+          <div class="term">babies</div>
+          <div class="term">category</div>
+          <div class="term">Challenges</div>
+          <div class="term">Clinical Efficacy</div>
+          <div class="term">daughters</div>
+          <div class="term">Development Indices</div>
+          <div class="term">group</div>
+          <div class="term">Impact</div>
+          <div class="term">kids</div>
+          <div class="term">Model</div>
+          <div class="term">ngo</div>
+          <div class="term">non-profit organization</div>
+          <div class="term">organization</div>
+          <div class="term">parents</div>
+          <div class="term">tunnel</div>
+          <div class="term">youngsters</div>
         </div>
         <div id="suggestion3">
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-        </div>
-        <div id="suggestion4">
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
-          <div class="tag"></div>
+            <!-- <p class="keywords">Home</p> -->
+            <div class="term">Aviation</div>
+            <div class="term">bill</div>
+            <div class="term">bus station</div>
+            <div class="term">Child Pedestrian Safety</div>
+            <div class="term">freight</div>
+            <div class="term">High</div>
+            <div class="term">household goods</div>
+            <div class="term">Mechanisms</div>
+            <div class="term">Mechanisms</div>
+            <div class="term">Motor Vehicles</div>
+            <div class="term">other necessity</div>
+            <div class="term">rail</div>
+            <div class="term">Railroads</div>
+            <div class="term">Ships</div>
+            <div class="term">Technology, Industry, and Agriculture</div>
+            <div class="term">traffic</div>
+            <div class="term">traffics</div>
+            <div class="term">transport</div>
+            <div class="term">transportation</div>
+            <div class="term">truck driver</div>  
         </div>
       </div>
-      <!-- <button id="exportButton">Export Data</button> -->
+    </div>
+<!-- next button -->
+    <div class="right">
+      <a id="next" href="Task4.html" class="button" style="text-decoration: none;">next</a>
     </div>
 
-    <script>
+  </div>
+
+<script>
       //Text
       const suggestions = document.querySelectorAll('#suggestions > div');
       const input = document.querySelector('input[type="text"]');
 
       suggestions.forEach(suggestion => {
-        const tags = suggestion.querySelectorAll('.tag');
+        const terms = suggestion.querySelectorAll('.term');
 
-        tags.forEach(tag => {
-          tag.addEventListener('click', () => {
-            tag.classList.toggle('selected');
+        terms.forEach(term => {
+          term.addEventListener('click', () => {
+            term.classList.toggle('selected');
             updateSearchInput();
           });
         });
@@ -236,18 +244,18 @@
         let searchText = '';
 
         suggestions.forEach(suggestion => {
-          const selectedTags = suggestion.querySelectorAll('.tag.selected');
+          const selectedterms = suggestion.querySelectorAll('.term.selected');
 
-          if (selectedTags.length > 0) {
+          if (selectedterms.length > 0) {
             const suggestionTexts = [];
 
-            selectedTags.forEach(tag => {
-              const tagText = tag.textContent.trim();
+            selectedterms.forEach(term => {
+              const termText = term.textContent.trim();
 
-              if (tagText.includes(' ')) {
-                suggestionTexts.push(`"${tagText}"`);
+              if (termText.includes(' ')) {
+                suggestionTexts.push(`"${termText}"`);
               } else {
-                suggestionTexts.push(tagText);
+                suggestionTexts.push(termText);
               }
             });
 
@@ -257,7 +265,7 @@
               searchText += ' ';
             }
 
-            if (selectedTags.length > 1) {
+            if (selectedterms.length > 1) {
               searchText += `(${suggestionText})`;
             } else {
               searchText += suggestionText;
@@ -277,7 +285,8 @@
         const currentTime = new Date().toLocaleString();
         const searchData = {
           text: searchText,
-          time: currentTime
+          time: currentTime,
+          taskId: 3
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -314,13 +323,13 @@
         if (previousData) {
           const searchData = JSON.parse(previousData);
 
-          let csvContent = 'Search Text,Time\n';
+          let csvContent = 'Task ID,Search Text,Time\n';
 
           searchData.forEach(data => {
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${searchText}","${time}"\n`;
+            csvContent += `"${3}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -341,10 +350,6 @@
       exportButton.addEventListener('click', () => {
         exportToCSV();
       });
-
-
-// Clear localstorage
-    //localStorage.clear();
 
     </script>
 

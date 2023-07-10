@@ -74,7 +74,8 @@
 
     #suggestion1,
     #suggestion2,
-    #suggestion3{
+    #suggestion3,
+    #suggestion4{
       display: flex;
       flex-direction: column;
       width: 33%;
@@ -140,13 +141,13 @@
   <div class="container">
 <!-- back button -->
     <div class="left">
-      <a id="back" href="Task1.html" class="button" style="text-decoration: none;">Back</a>
+      <a id="back" href="Task19.html" class="button" style="text-decoration: none;">Back</a>
     </div>
 <!-- container -->
     <div class="middle">
       <div id="task">
-        <div class="title">Task2</div>
-        <div class="text">Find papers related to the education of children at home.</div>
+        <div class="title">Task20</div>
+        <div class="text">Explore how anxiety causes the feeling of a lump in the throat. </div>
       </div>
       <div class="search-container">
         <input type="text" class="search-input">
@@ -155,66 +156,65 @@
       <div id="suggestions">
         <!-- <div class="title">Suggestions</div> -->
         <div id="suggestion1">
-          <!-- <p class="keywords">Education</p> -->
-          <div class="term">career training</div>
-          <div class="term">characteristic</div>
-          <div class="term">curriculum</div>
-          <div class="term">education</div>
-          <div class="term">Factors</div>
-          <div class="term">grammar school</div>
-          <div class="term">Health Education</div>
-          <div class="term">Job Stress</div>
-          <div class="term">major societal activity</div>
-          <div class="term">programs</div>
-          <div class="term">school</div>
-          <div class="term">schools</div>
-          <div class="term">Study was Conducted</div>
-          <div class="term">technical education</div>
-          <div class="term">Variable</div>
-          <div class="term">vocational</div>
+          <!-- <p class="keywords">anxiety</p> -->
+          <div class="term">anger</div>
+          <div class="term">anxiety</div>
+          <div class="term">disabling</div>
+          <div class="term">DISORDERS</div>
+          <div class="term">Effect</div>
+          <div class="term">Emotion</div>
+          <div class="term">Emotions</div>
+          <div class="term">manifestation</div>
+          <div class="term">Mental Health</div>
+          <div class="term">nervousness</div>
+          <div class="term">obsessive-compulsive disorder</div>
+          <div class="term">obsessivecompulsive disorder</div>
+          <div class="term">Performance Anxiety</div>
+          <div class="term">related disorder</div>
+          <div class="term">Social Anxiety</div>
+          <div class="term">stress</div>
+          <div class="term">sweaty palm</div>
+          <div class="term">uncertainty</div>
+          <div class="term">unease</div>
+          <div class="term">Valid</div>
         </div>
         <div id="suggestion2">
-          <!-- <p class="keywords">Children</p> -->
-          <div class="term">babies</div>
-          <div class="term">category</div>
-          <div class="term">Challenges</div>
-          <div class="term">children</div>
-          <div class="term">Clinical Efficacy</div>
-          <div class="term">daughters</div>
-          <div class="term">Development Indices</div>
-          <div class="term">group</div>
-          <div class="term">Impact</div>
-          <div class="term">kids</div>
-          <div class="term">Model</div>
-          <div class="term">ngo</div>
-          <div class="term">non-profit organization</div>
-          <div class="term">organization</div>
-          <div class="term">parents</div>
-          <div class="term">youngsters</div>
+          <!-- <p class="keywords">lump</p> -->
+          <div class="term">Alteration</div>
+          <div class="term">cancerous</div>
+          <div class="term">Imaging</div>
+          <div class="term">lumps</div>
+          <div class="term">Parameters</div>
+          <div class="term">payments</div>
+          <div class="term">payouts</div>
+          <div class="term">Presentation</div>
+          <div class="term">sign</div>
+          <div class="term">sum</div>
+          <div class="term">Tumor</div>
         </div>
         <div id="suggestion3">
-            <!-- <p class="keywords">Home</p> -->
-            <div class="term">Adult</div>
-            <div class="term">Associated</div>
-            <div class="term">back</div>
-            <div class="term">come</div>
-            <div class="term">go</div>
-            <div class="term">home</div>
-            <div class="term">homes</div>
-            <div class="term">hot tub</div>
-            <div class="term">just</div>
-            <div class="term">own home</div>
-            <div class="term">personal space</div>
-            <div class="term">protected area</div>
-            <div class="term">Randomized Controlled Trials</div>
-            <div class="term">Systematic Review</div>
-            <div class="term">temporary dwelling</div>  
+            <!-- <p class="keywords">throat</p> -->
+            <div class="term">abdomen</div>
+            <div class="term">allergic reaction</div>
+            <div class="term">area of the body</div>
+            <div class="term">ear</div>
+            <div class="term">Expression</div>
+            <div class="term">health problem</div>
+            <div class="term">Increased</div>
+            <div class="term">lungs</div>
+            <div class="term">Male</div>
+            <div class="term">neck</div>
+            <div class="term">neck cancer</div>
+            <div class="term">part of the body</div>
+            <div class="term">throat</div>
+            <div class="term">throats</div>
+            <div class="term">Treatment</div>  
         </div>
       </div>
     </div>
 <!-- next button -->
     <div class="right">
-      <a id="next" href="Task3.html" class="button" style="text-decoration: none;">next</a>
+      <a id="next" href="Thanks.html" class="button" style="text-decoration: none;">next</a>
     </div>
 
   </div>
@@ -281,7 +281,7 @@
         const searchData = {
           text: searchText,
           time: currentTime,
-          taskId: 2
+          taskId: 20
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -324,7 +324,7 @@
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${2}","${searchText}","${time}"\n`;
+            csvContent += `"${20}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

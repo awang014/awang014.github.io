@@ -8,6 +8,23 @@
       padding: 10px 80px;
     }
 
+    .container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .left {
+      flex-basis: 10%; /* 宽度占比为 1 */
+    }
+
+    .middle {
+      flex-basis: 80%; /* 宽度占比为 3 */
+    }
+
+    .right {
+      flex-basis: 10%; /* 宽度占比为 1 */
+    }
+
     .search-container {
       display: flex;
       height: 40px;
@@ -23,18 +40,11 @@
     .search-button {
       margin-left: 10px;
       padding: 8px 16px;
-      background-color: rgb(64, 156, 255);
-      color: white;
-      border: none;
+      background-color: rgb(228, 228, 228);
+      color: rgb(51, 51, 51);
+      border: 2px solid rgb(127, 127, 127);
       border-radius: 4px;
       cursor: pointer;
-    }
-
-    #container {
-      display: flex;
-      height: 100vh;
-      margin-top: 10px;
-      margin-bottom: 100px;
     }
 
     .title {
@@ -45,13 +55,31 @@
 
     .text{
       font-size: 15px;
-      margin-top: 30px;
+      margin-bottom: 5px;
+    }
+
+    .tab{
+      margin-left: 40px;
+    }
+
+    .tip{
+      font-size: 12px;
+      margin-bottom: 3px;
+      color: #737373;
+    }
+
+    .keywords{
+      font-size: 15px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      color: rgba(0, 0, 0, 0.803);
     }
 
     #suggestions {
-      flex: 3;
+      /* flex: 3; */
       /* border: 1px solid #ccc; */
-      padding: 20px;
+      padding-top: 20px;
     }
 
     #suggestion1,
@@ -60,7 +88,7 @@
     #suggestion4 {
       display: flex;
       flex-direction: column;
-      width: 25%;
+      width: 33%;
       float: left;
       gap: 10px;
     }
@@ -83,143 +111,176 @@
     }
 
     #task {
-      flex: 1;
       background-color: #ebebec;
       padding: 20px;
+      margin-bottom: 20px;
       /* border: 1px solid #ccc; */
-      height: 600px;
+    }
+
+    #intro {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 2px dashed #444444;
+    }
+
+    .highlight {
+      color: #d21010;
+    }
+
+    .bold {
+      font-weight: bold;
     }
 
     .button {
-      margin-top: 400px;
+      padding: 8px 16px;
+      background-color: rgb(228, 228, 228);
+      color: rgb(107, 107, 107);
+      /* border: 2px solid rgb(164, 164, 164); */
+      border-radius: 4px;
+      cursor: pointer;
+      position: fixed;
+      bottom: 30px;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
     }
 
     #back{
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: rgb(228, 228, 228);
-      color: rgb(107, 107, 107);
-      border: 2px solid rgb(164, 164, 164);
-      border-radius: 2px;
-      cursor: pointer;
+      left: 50px;
     }
     
     #next {
-      display: inline-block;
-      padding: 8px 16px;
-      background-color: rgb(228, 228, 228);
-      color: rgb(107, 107, 107);
-      border: 2px solid rgb(164, 164, 164);
-      border-radius: 2px;
-      cursor: pointer;
+      right: 50px;
     }
 
+    .scroll-indicator {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: url(Group\ 9.png) center/contain no-repeat;
+      transition: opacity 0.5s;
+      opacity: 1;
+      pointer-events: none;
+    }
+    .scroll-indicator.hide {
+      opacity: 0;
+    }
 
   </style>
 </head>
 
 <body>
-
-  <div class="search-container">
-    <input type="text" class="search-input">
-    <button id="searchButton" class="search-button">search</button>
-  </div>
-
-  <div id="container">
-    <div id="suggestions">
-      <!-- <div class="title">Suggestions</div> -->
-      <div id="suggestion1">
-          <div class="term">broadcast</div>
-          <div class="term">broadcasting</div>
-          <div class="term">cellular phone</div>
-          <div class="term">channel</div>
-          <div class="term">Electromagnetic</div>
-          <div class="term">electromagnetic interference</div>
-          <div class="term">Enzyme Activity</div>
-          <div class="term">megahertz</div>
-          <div class="term">microwave</div>
-          <div class="term">Microwave Ablation MWA</div>
-          <div class="term">Microwave-assisted Extraction</div>
-          <div class="term">Microwaves</div>
-          <div class="term">mobile phone</div>
-          <div class="term">other wavelength</div>
-          <div class="term">Radiation, Nonionizing</div>
-          <div class="term">Radio Frequency</div>
-          <div class="term">radiolocation</div>
-          <div class="term">radio waves</div>
-          <div class="term">RF Pulses</div>
-          <div class="term">tv</div>
-          <div class="term">wave</div>
+  <!-- <div id="scroll-indicator" class="scroll-indicator"></div> -->
+  <div class="container">
+<!-- back button -->
+    <div class="left">
+      <!-- <a id="back" href="Task1.html" class="button" style="text-decoration: none;">Back</a> -->
+    </div>
+<!-- container -->
+    <div class="middle">
+      <div id="intro">
+        <div class="title">Introduction</div>
+        <div class="text">Welcome! This experiment contains 20 search tasks, each of which will take you 1-2 minutes.</div>
+        <div class="text">In each task, you will be given a <span class="highlight">topic</span> to search for. The system will suggest different <span class="highlight">terms</span> related to that topic based on its keywords. Feel free to select as many terms as you like and search until you are happy with the search results.</div>
+        <div class="text">Please follow the instructions below to start the experiment with a sample task:</div>
+        <div class="text tab bold">Step 1 - Select the terms you think are relevant to the topic by clicking on them.</div>
+        <div class="text tab bold">Step 2 - Click the search button to review the search results.</div>
+        <div class="text tab bold">Step 3 - If the search results are unsatisfactory, you can adjust the selected terms as many times as you like. </div>
+        <div class="text tab bold">Step 4 - Once you think you have finished this search task, click the Next button at the bottom right of the page.</div>
+        <div class="tip" >Tips:</div>
+        <div class="tip tab">*Please do not type in the search bar. All you need to do is select the term below.</div>
+        <div class="tip tab">*The terms you have selected will be displayed in the search bar. To deselect them, simply click on the terms again.</div>
+        <div class="tip tab">*Scroll down the screen to ensure that you can view all the terms in each task.</div>
+        <div class="tip tab">*If you have any problems at any time during the experiment, please feel free to contact the experimenter.</div>
       </div>
-      <div id="suggestion2">
-          <div class="term">broadcast</div>
-          <div class="term">broadcasting</div>
-          <div class="term">Cancer Risk</div>
-          <div class="term">Changes in the Brain</div>
-          <div class="term">EMR</div>
-          <div class="term">Exposure to Electromagnetic Fields</div>
-          <div class="term">item</div>
-          <div class="term">necessary infrastructure</div>
-          <div class="term">radio towers</div>
-          <div class="term">structure</div>
-          <div class="term">Survival Rates</div>
-          <div class="term">tall structure</div>
-          <div class="term">tower</div>
-          <div class="term">transmitter</div>
-          <div class="term">tv</div>
+      <div id="task">
+        <div class="title">Sample Task</div>
+        <!-- <br/> -->
+        <div class="text">Investigate the effects of smell on adults' cognition.<span class="highlight"> (Topic)</span></div>
       </div>
-      <div id="suggestion3">
-          <div class="term">audio/visual equipment</div>
-          <div class="term">car phones</div>
-          <div class="term">cellphones</div>
-          <div class="term">Colorimetric</div>
-          <div class="term">computers</div>
-          <div class="term">COVID-19 Pandemic</div>
-          <div class="term">mobile</div>
-          <div class="term">mobile phone</div>
-          <div class="term">Other Topics</div>
-          <div class="term">Randomized Controlled Trial</div>
-          <div class="term">Semantic</div>
-          <div class="term">truck</div>
-          <div class="term">vehicles</div>
+      <div class="search-container">
+        <input type="text" class="search-input">
+        <button id="searchButton" class="search-button">search</button>
       </div>
-      <div id="suggestion4">
-          <div class="term">brain cancer</div>
-          <div class="term">Brain Diseases</div>
-          <div class="term">brain disorder</div>
-          <div class="term">breast</div>
-          <div class="term">Central Nervous System</div>
-          <div class="term">Central Nervous System Neoplasms</div>
-          <div class="term">Cerebral Ventricle Neoplasms</div>
-          <div class="term">diagnosed</div>
-          <div class="term">form of cancer</div>
-          <div class="term">Gene Expression</div>
-          <div class="term">glioblastoma multiforme</div>
-          <div class="term">glioma</div>
-          <div class="term">Infratentorial Neoplasms</div>
-          <div class="term">lung</div>
-          <div class="term">malignant glioma</div>
-          <div class="term">Mouse Model</div>
-          <div class="term">Patient Survival</div>
-          <div class="term">Pinealoma</div>
-          <div class="term">prostate</div>
-          <div class="term">Targeting</div>
-          <div class="term">tumors</div>
+      </br>
+      <div class="highlight">(Below are suggested terms you can click on to select)</div>
+      <div id="suggestions">
+        <!-- <div class="title">Suggestions</div> -->
+        <div id="suggestion1">
+            <!-- <p class="keywords">Smell<span class="highlight"> (keyword)</span></p> -->
+            <div class="term">aroma</div>
+            <div class="term">Case Report</div>
+            <div class="term">Compared</div>
+            <div class="term">Coronavirus Disease 2019 COVID-19</div>
+            <div class="term">odors</div>
+            <div class="term">pungent</div>
+            <div class="term">SARS-CoV-2</div>
+            <div class="term">smell</div>
+            <div class="term">smelling</div>
+            <div class="term">smells</div>
+        </div>
+        <div id="suggestion2">
+            <!-- <p class="keywords">Adult<span class="highlight"> (keyword)</span></p> -->
+            <div class="term">adult</div>
+            <div class="term">Age Groups</div>
+            <div class="term">Aged</div>
+            <div class="term">child</div>
+            <div class="term">female</div>
+            <div class="term">females</div>
+            <div class="term">Increased</div>
+            <div class="term">male</div>
+            <div class="term">males</div>
+            <div class="term">Middle Aged</div>
+            <div class="term">Other Topics</div>
+            <div class="term">Period of Cardiac Surgery</div>
+            <div class="term">Risk</div>
+            <div class="term">YOUNG ADULT</div>
+            <div class="term">Young Adult</div>
+        </div>
+        <div id="suggestion3">
+            <!-- <p class="keywords">Cognition<span class="highlight"> (keyword)</span></p> -->
+            <div class="term">Age</div>
+            <div class="term">Awareness</div>
+            <div class="term">cognition</div>
+            <div class="term">cognitive</div>
+            <div class="term">Cognitive Reserve</div>
+            <div class="term">Decline</div>
+            <div class="term">embodied</div>
+            <div class="term">Findings</div>
+            <div class="term">Intuition</div>
+            <div class="term">Mental Processes</div>
+            <div class="term">Model</div>
+            <div class="term">neuroscience</div>
+            <div class="term">Other Topics</div>
+            <div class="term">perceptual</div>
+            <div class="term">spatial</div>
+        </div>
       </div>
     </div>
-
-    <div id="task">
-      <div class="title">Task1</div>
-      <div class="text">Find evidence that radio waves from radio towers or car phones have influenced the development of brain cancer.</div>
-      <div class="button" style="display: flex; justify-content: space-between;">
-        <div id="back">Back</div>
-        <div id="next">Done</div>
-      </div>
+<!-- next button -->
+    <div class="right">
+      <a id="next" href="Task1.html" class="button" style="text-decoration: none;">next</a>
     </div>
 
   </div>
 
 <script>
+ window.addEventListener('scroll', function() {
+      var scrollIndicator = document.getElementById('scroll-indicator');
+      var windowHeight = window.innerHeight;
+      var scrollHeight = document.documentElement.scrollHeight;
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+      if (scrollTop + windowHeight >= scrollHeight) {
+        scrollIndicator.classList.add('hide');
+      } else {
+        scrollIndicator.classList.remove('hide');
+      }
+    });
+
       //Text
       const suggestions = document.querySelectorAll('#suggestions > div');
       const input = document.querySelector('input[type="text"]');
@@ -281,7 +342,7 @@
         const searchData = {
           text: searchText,
           time: currentTime,
-          taskId: 1
+          taskId: 0
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -324,7 +385,7 @@
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${1}","${searchText}","${time}"\n`;
+            csvContent += `"${0}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

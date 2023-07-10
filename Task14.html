@@ -74,7 +74,8 @@
 
     #suggestion1,
     #suggestion2,
-    #suggestion3{
+    #suggestion3,
+    #suggestion4{
       display: flex;
       flex-direction: column;
       width: 33%;
@@ -140,13 +141,13 @@
   <div class="container">
 <!-- back button -->
     <div class="left">
-      <a id="back" href="Task1.html" class="button" style="text-decoration: none;">Back</a>
+      <a id="back" href="Task13.html" class="button" style="text-decoration: none;">Back</a>
     </div>
 <!-- container -->
     <div class="middle">
       <div id="task">
-        <div class="title">Task2</div>
-        <div class="text">Find papers related to the education of children at home.</div>
+        <div class="title">Task14</div>
+        <div class="text">Investigate scientific theories and data on evolution. </div>
       </div>
       <div class="search-container">
         <input type="text" class="search-input">
@@ -155,66 +156,63 @@
       <div id="suggestions">
         <!-- <div class="title">Suggestions</div> -->
         <div id="suggestion1">
-          <!-- <p class="keywords">Education</p> -->
-          <div class="term">career training</div>
-          <div class="term">characteristic</div>
-          <div class="term">curriculum</div>
-          <div class="term">education</div>
-          <div class="term">Factors</div>
-          <div class="term">grammar school</div>
-          <div class="term">Health Education</div>
-          <div class="term">Job Stress</div>
-          <div class="term">major societal activity</div>
-          <div class="term">programs</div>
-          <div class="term">school</div>
-          <div class="term">schools</div>
-          <div class="term">Study was Conducted</div>
-          <div class="term">technical education</div>
-          <div class="term">Variable</div>
-          <div class="term">vocational</div>
+          <!-- <p class="keywords">scientific</p> -->
+          <div class="term">Analysis</div>
+          <div class="term">Analyze</div>
+          <div class="term">application</div>
+          <div class="term">group</div>
+          <div class="term">journals</div>
+          <div class="term">knowledge</div>
+          <div class="term">market</div>
+          <div class="term">Patients</div>
+          <div class="term">Perspective</div>
+          <div class="term">scholarly</div>
+          <div class="term">science</div>
+          <div class="term">sciences</div>
+          <div class="term">scientific</div>
         </div>
         <div id="suggestion2">
-          <!-- <p class="keywords">Children</p> -->
-          <div class="term">babies</div>
-          <div class="term">category</div>
-          <div class="term">Challenges</div>
-          <div class="term">children</div>
-          <div class="term">Clinical Efficacy</div>
-          <div class="term">daughters</div>
-          <div class="term">Development Indices</div>
-          <div class="term">group</div>
-          <div class="term">Impact</div>
-          <div class="term">kids</div>
-          <div class="term">Model</div>
-          <div class="term">ngo</div>
-          <div class="term">non-profit organization</div>
-          <div class="term">organization</div>
-          <div class="term">parents</div>
-          <div class="term">youngsters</div>
+          <!-- <p class="keywords">theory</p> -->
+          <div class="term">adaptation</div>
+          <div class="term">biological evolution</div>
+          <div class="term">concepts</div>
+          <div class="term">Findings</div>
+          <div class="term">hypothesis</div>
+          <div class="term">New Insights</div>
+          <div class="term">notion</div>
+          <div class="term">Other Topics</div>
+          <div class="term">place</div>
+          <div class="term">quantum</div>
+          <div class="term">Stability</div>
+          <div class="term">theories</div>
+          <div class="term">theory</div>
+          <div class="term">theory of relativity</div>
+          <div class="term">tool</div>
         </div>
         <div id="suggestion3">
-            <!-- <p class="keywords">Home</p> -->
-            <div class="term">Adult</div>
-            <div class="term">Associated</div>
-            <div class="term">back</div>
-            <div class="term">come</div>
-            <div class="term">go</div>
-            <div class="term">home</div>
-            <div class="term">homes</div>
-            <div class="term">hot tub</div>
-            <div class="term">just</div>
-            <div class="term">own home</div>
-            <div class="term">personal space</div>
-            <div class="term">protected area</div>
-            <div class="term">Randomized Controlled Trials</div>
-            <div class="term">Systematic Review</div>
-            <div class="term">temporary dwelling</div>  
+            <!-- <p class="keywords">evolution</p> -->
+            <div class="term">concepts</div>
+            <div class="term">darwinian</div>
+            <div class="term">evolution</div>
+            <div class="term">evolutionary</div>
+            <div class="term">evolving</div>
+            <div class="term">fossil record</div>
+            <div class="term">hot-button issue</div>
+            <div class="term">issue</div>
+            <div class="term">Ocean</div>
+            <div class="term">Science</div>
+            <div class="term">scientific idea</div>
+            <div class="term">Studies</div>
+            <div class="term">theories</div>
+            <div class="term">Water</div>
+            <div class="term">word</div>  
+            <div class="term">Years</div> 
         </div>
       </div>
     </div>
 <!-- next button -->
     <div class="right">
-      <a id="next" href="Task3.html" class="button" style="text-decoration: none;">next</a>
+      <a id="next" href="Task15.html" class="button" style="text-decoration: none;">next</a>
     </div>
 
   </div>
@@ -281,7 +279,7 @@
         const searchData = {
           text: searchText,
           time: currentTime,
-          taskId: 2
+          taskId: 14
         };
 
         let previousData = localStorage.getItem('searchData');
@@ -324,7 +322,7 @@
             const searchText = data.text.replace(/"/g, '""');
             const time = data.time;
 
-            csvContent += `"${2}","${searchText}","${time}"\n`;
+            csvContent += `"${14}","${searchText}","${time}"\n`;
           });
 
           const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });

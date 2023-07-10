@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #exportPage {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #exportButton {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 3px;
+      background-color: #e1e1e1;
+      color: #000000;
+      border: 2px solid #000;
+      text-decoration: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div id="exportPage">
+    <h3>Thank you for your valuable participation!</h3>
+    <h3>Please click the button to download the CSV file and send it to the experimenter.</h3>
+    <button id="exportButton">Download</button>
+  </div>
+
+  <script>
+
+exportButton.addEventListener('click', () => {
+  const searchData = JSON.parse(localStorage.getItem('searchData'));
+
+  if (searchData) {
+    let csvContent = 'Task ID,Search Text,Time\n';
+
+    searchData.forEach(data => {
+      const taskId = data.taskId;
+      const searchText = data.text.replace(/"/g, '""');
+      const time = data.time;
+
+      csvContent += `"${taskId}","${searchText}","${time}"\n`;
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+
+    const link = document.createElement('a');
+    if (link.download !== undefined) {
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'search_data.csv');
+
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  }
+});
+
+// Clear localstorage
+    //localStorage.clear();
+
+  </script>
+</body>
+</html>
